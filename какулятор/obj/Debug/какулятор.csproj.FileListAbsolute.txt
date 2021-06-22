@@ -1,0 +1,15 @@
+C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\какулятор.exe.config
+C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\какулятор.exe
+C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\какулятор.pdb
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.csprojAssemblyReference.cache
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\MainWindow.g.cs
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\App.g.cs
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор_MarkupCompile.cache
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор_MarkupCompile.lref
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\MainWindow.baml
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.g.resources
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.Properties.Resources.resources
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.csproj.GenerateResource.cache
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.csproj.CoreCompileInputs.cache
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.exe
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.pdb
