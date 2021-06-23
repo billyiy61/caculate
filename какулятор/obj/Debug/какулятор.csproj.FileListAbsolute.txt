@@ -1,7 +1,6 @@
 C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\какулятор.exe.config
 C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\какулятор.exe
 C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\какулятор.pdb
-C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.csprojAssemblyReference.cache
 C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\MainWindow.g.cs
 C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\App.g.cs
 C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор_MarkupCompile.cache
@@ -13,3 +12,10 @@ C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\
 C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.csproj.CoreCompileInputs.cache
 C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.exe
 C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.pdb
+C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\MaterialDesignColors.dll
+C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\MaterialDesignColors.pdb
+C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\billyiy61\source\repos\какулятор\какулятор\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\App.baml
+C:\Users\billyiy61\source\repos\какулятор\какулятор\obj\Debug\какулятор.csproj.CopyComplete
