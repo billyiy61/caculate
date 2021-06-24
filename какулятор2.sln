@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "какулятор", "какулятор\какулятор.csproj", "{A4DBD308-423F-4445-A79B-16CBFB6B232E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "какулятор2", "какулятор\какулятор2.csproj", "{A4DBD308-423F-4445-A79B-16CBFB6B232E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
