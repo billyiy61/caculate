@@ -29,6 +29,62 @@ namespace какулятор2
             InitializeComponent();
         }
 
+        public void BlockUnlock(int n)
+        {
+            if (n == 1)
+            {
+                btn0.IsEnabled = false;
+                btn1.IsEnabled = false;
+                btn2.IsEnabled = false;
+                btn3.IsEnabled = false;
+                btn4.IsEnabled = false;
+                btn5.IsEnabled = false;
+                btn6.IsEnabled = false;
+                btn7.IsEnabled = false;
+                btn8.IsEnabled = false;
+                btn9.IsEnabled = false;
+                btnCE.IsEnabled = false;
+                btnEQU.IsEnabled = false;
+                btnMOD.IsEnabled = false;
+                btnDIVIDE.IsEnabled = false;
+                btnSQRT.IsEnabled = false;
+                btnPOW.IsEnabled = false;
+                btnFRACT.IsEnabled = false;
+                btnMULT.IsEnabled = false;
+                btnMINUS.IsEnabled = false;
+                btnPLUS.IsEnabled = false;
+                btnERASE.IsEnabled = false;
+                btnCOMMA.IsEnabled = false;
+
+                txbSMALL.Text = "";
+            }
+            else if (n == 2)
+            {
+                btn0.IsEnabled = true;
+                btn1.IsEnabled = true;
+                btn2.IsEnabled = true;
+                btn3.IsEnabled = true;
+                btn4.IsEnabled = true;
+                btn5.IsEnabled = true;
+                btn6.IsEnabled = true;
+                btn7.IsEnabled = true;
+                btn8.IsEnabled = true;
+                btn9.IsEnabled = true;
+                btnCE.IsEnabled = true;
+                btnEQU.IsEnabled = true;
+                btnMOD.IsEnabled = true;
+                btnDIVIDE.IsEnabled = true;
+                btnSQRT.IsEnabled = true;
+                btnPOW.IsEnabled = true;
+                btnFRACT.IsEnabled = true;
+                btnMULT.IsEnabled = true;
+                btnMINUS.IsEnabled = true;
+                btnPLUS.IsEnabled = true;
+                btnERASE.IsEnabled = true;
+                btnCOMMA.IsEnabled = true;
+            }
+        }
+
         private void btn0_Click(object sender, RoutedEventArgs e)
         {   
             txbBIG.Text += 0;
@@ -81,226 +137,113 @@ namespace какулятор2
 
         private void btnC_Click(object sender, RoutedEventArgs e)
         {
-            txbBIG.Text = null;
-            txbSMALL.Text = null;
-            comma = 0;
-            PorM = 0;
-            func = 0;
-            num1 = null;
+            try
+            {
+                txbBIG.Text = null;
+                txbSMALL.Text = null;
+                comma = 0;
+                PorM = 0;
+                func = 0;
+                num1 = null;
 
-            btn0.IsEnabled = true;
-            btn1.IsEnabled = true;
-            btn2.IsEnabled = true;
-            btn3.IsEnabled = true;
-            btn4.IsEnabled = true;
-            btn5.IsEnabled = true;
-            btn6.IsEnabled = true;
-            btn7.IsEnabled = true;
-            btn8.IsEnabled = true;
-            btn9.IsEnabled = true;
-            btnCE.IsEnabled = true;
-
-            btnEQU.IsEnabled = true;
+                BlockUnlock(2);
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+           
         }
 
         private void btnCE_Click(object sender, RoutedEventArgs e)
         {
-            txbBIG.Text = null;
-            comma = 0;
-            PorM = 0;
-        }
-
-        private void btnERASE_Click(object sender, RoutedEventArgs e)
-        {
-            int lenght = txbBIG.Text.Length - 1;
-            string text = txbBIG.Text;
-            txbBIG.Text = null;
-            for (int i = 0; i < lenght; i++)
+            try
             {
-                txbBIG.Text += text[i];
-            }
-        }
-
-        private void btnCOMMA_Click(object sender, RoutedEventArgs e)
-        {
-            if (comma == 0)
-            {
-                txbBIG.Text += ",";
-                comma = 1;
-            }
-            
-        }
-
-        private void btnDIV_Click(object sender, RoutedEventArgs e)
-        {
-            if ((num1 != string.Empty) && (txbBIG.Text != "-"))
-            {
-                num1 = txbBIG.Text;
-                txbSMALL.Text = txbBIG.Text + "%";
                 txbBIG.Text = null;
-                func = 1;
+                comma = 0;
+                PorM = 0;
             }
-        }
-
-        private void btnSQRT_Click(object sender, RoutedEventArgs e)
-        {
-            if ((num1 != string.Empty) && (txbBIG.Text != "-"))
+            catch (Exception)
             {
-                num1 = txbBIG.Text;
-                txbSMALL.Text = "√" + txbBIG.Text;
-                txbBIG.Text = null;
-                txbBIG.Text = (Calculate.Sqrt(Convert.ToDouble(num1))).ToString();
-                if (txbBIG.Text.Length > 10)
-                {
-                    string text = txbBIG.Text;
-                    txbBIG.Text = null;
-                    for (int i = 0; i < 10; i++)
-                    {
-                        txbBIG.Text += text[i];
-                    }
-                }
-                btn0.IsEnabled = false;
-                btn1.IsEnabled = false;
-                btn2.IsEnabled = false;
-                btn3.IsEnabled = false;
-                btn4.IsEnabled = false;
-                btn5.IsEnabled = false;
-                btn6.IsEnabled = false;
-                btn7.IsEnabled = false;
-                btn8.IsEnabled = false;
-                btn9.IsEnabled = false;
-                btnCE.IsEnabled = false;
-                num1 = null;
-                btnEQU.IsEnabled = false;
-            }
-        }
-
-        private void btnPOW_Click(object sender, RoutedEventArgs e)
-        {
-            if ((num1 != string.Empty) && (txbBIG.Text != "-"))
-            {
-                num1 = txbBIG.Text;
-                txbSMALL.Text = txbBIG.Text + "^";
-                txbBIG.Text = null;
-                func = 3;
-            }
-            
-        }
-
-        private void btnFRACT_Click(object sender, RoutedEventArgs e)
-        {
-            num1 = txbBIG.Text;
-            if ((num1 != string.Empty) && (txbBIG.Text != "-"))
-            {
-                txbSMALL.Text = "¹/" + txbBIG.Text;
-                txbBIG.Text = (Calculate.Fract(Convert.ToDouble(num1))).ToString();
-                if (txbBIG.Text.Length > 10)
-                {
-                    string text = txbBIG.Text;
-                    txbBIG.Text = null;
-                    for (int i = 0; i < 10; i++)
-                    {
-                        txbBIG.Text += text[i];
-                    }
-                }
-                btn0.IsEnabled = false;
-                btn1.IsEnabled = false;
-                btn2.IsEnabled = false;
-                btn3.IsEnabled = false;
-                btn4.IsEnabled = false;
-                btn5.IsEnabled = false;
-                btn6.IsEnabled = false;
-                btn7.IsEnabled = false;
-                btn8.IsEnabled = false;
-                btn9.IsEnabled = false;
-                btnCE.IsEnabled = false;
-                func = 4;
-                num1 = null;
-                btnEQU.IsEnabled = false;
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
             }
          
         }
 
-        private void btnDIVIDE_Click(object sender, RoutedEventArgs e)
+        private void btnERASE_Click(object sender, RoutedEventArgs e)
         {
-            num1 = txbBIG.Text;
-            if ((num1 != string.Empty) && (txbBIG.Text != "-"))
+            try
             {
-                txbSMALL.Text = txbBIG.Text + "/";
+                int lenght = txbBIG.Text.Length - 1;
+                string text = txbBIG.Text;
                 txbBIG.Text = null;
-                func = 5;
-
-            }
-        }
-
-        private void btnMULT_Click(object sender, RoutedEventArgs e)
-        {
-            num1 = txbBIG.Text;
-            if ((num1 != string.Empty) && (txbBIG.Text != "-"))
-            {
-                txbSMALL.Text = txbBIG.Text + "×";
-                txbBIG.Text = null;
-                func = 6;
-            }
-        }
-
-        private void btnMINUS_Click(object sender, RoutedEventArgs e)
-        {
-           
-            if (txbBIG.Text == string.Empty)
-            {
-                txbBIG.Text = "-";
-                PorM = 1;
-            }
-            else if((txbBIG.Text != null) && (txbBIG.Text != "-"))
-            {
-                num1 = txbBIG.Text;
-                if (num1 != string.Empty)
+                for (int i = 0; i < lenght; i++)
                 {
-                    txbSMALL.Text = txbBIG.Text + "-";
-                    txbBIG.Text = null;
-                    func = 7;
-                    PorM = 0;
+                    txbBIG.Text += text[i];
                 }
             }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+           
+        }
+
+        private void btnCOMMA_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (comma == 0)
+                {
+                    txbBIG.Text += ",";
+                    comma = 1;
+                }
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+            
             
         }
 
-        private void btnPLUS_Click(object sender, RoutedEventArgs e)
+        private void btnMOD_Click(object sender, RoutedEventArgs e)
         {
-            num1 = txbBIG.Text;
-            if ((num1 != string.Empty)&&(txbBIG.Text != "-"))
+            try
             {
-                txbSMALL.Text = txbBIG.Text + "+";
-                txbBIG.Text = null;
-                func = 8;
+                if ((num1 != string.Empty) && (txbBIG.Text != "-"))
+                {
+                    num1 = txbBIG.Text;
+                    txbSMALL.Text = txbBIG.Text + "%";
+                    txbBIG.Text = null;
+                    func = 1;
+
+                    btnEQU.IsEnabled = true;
+                    comma = 0;
+                }
             }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+           
         }
 
-        private void btnEQU_Click(object sender, RoutedEventArgs e)
+        private void btnSQRT_Click(object sender, RoutedEventArgs e)
         {
-            if ((num1 != string.Empty) && (txbBIG.Text != "-")&&(txbBIG.Text != string.Empty))
+            try
             {
-                if (func == 1)
+                if ((num1 != string.Empty) && (txbBIG.Text != "-"))
                 {
-                    txbSMALL.Text += txbBIG.Text + "=";
-                    txbBIG.Text = (Calculate.Div(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
-
-                    num1 = null;
-                    btnEQU.IsEnabled = false;
-                }
-                else if (func == 3)
-                {
-                    txbSMALL.Text += txbBIG.Text;
-                    txbBIG.Text = (Calculate.Pow(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
-
-                    num1 = null;
-                    btnEQU.IsEnabled = false;
-                }
-                else if (func == 5)
-                {
-                    txbSMALL.Text += txbBIG.Text + "=";
-                    txbBIG.Text = (Calculate.Divide(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
+                    num1 = txbBIG.Text;
+                    txbSMALL.Text = "√" + txbBIG.Text;
+                    txbBIG.Text = null;
+                    txbBIG.Text = (Calculate.Sqrt(num1));
                     if (txbBIG.Text.Length > 10)
                     {
                         string text = txbBIG.Text;
@@ -309,37 +252,274 @@ namespace какулятор2
                         {
                             txbBIG.Text += text[i];
                         }
-                        
+                    }
+                    BlockUnlock(1);
+                    num1 = null;
+
+                  
+                }
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+
+            
+        }
+
+        private void btnPOW_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if ((num1 != string.Empty) && (txbBIG.Text != "-"))
+                {
+                    num1 = txbBIG.Text;
+                    txbSMALL.Text = txbBIG.Text + "^";
+                    txbBIG.Text = null;
+                    func = 3;
+
+                }
+
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+        }
+
+        private void btnFRACT_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                num1 = txbBIG.Text;
+                if ((num1 != string.Empty) && (txbBIG.Text != "-"))
+                {
+                    txbSMALL.Text = "¹/" + txbBIG.Text;
+                    txbBIG.Text = (Calculate.Fract(num1));
+                    if (txbBIG.Text.Length > 10)
+                    {
+                        string text = txbBIG.Text;
+                        txbBIG.Text = null;
+                        for (int i = 0; i < 10; i++)
+                        {
+                            txbBIG.Text += text[i];
+                        }
+                    }
+                    BlockUnlock(1);
+                    func = 4;
+                    num1 = null;
+
+                }
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+
+        }
+
+        private void btnDIVIDE_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                num1 = txbBIG.Text;
+                if ((num1 != string.Empty) && (txbBIG.Text != "-"))
+                {
+                    txbSMALL.Text = txbBIG.Text + "/";
+                    txbBIG.Text = null;
+                    func = 5;
+                    comma = 0;
+
+                    btnEQU.IsEnabled = true;
+                }
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+
+        }
+
+        private void btnMULT_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                num1 = txbBIG.Text;
+                if ((num1 != string.Empty) && (txbBIG.Text != "-"))
+                {
+                    txbSMALL.Text = txbBIG.Text + "×";
+                    txbBIG.Text = null;
+                    func = 6;
+                    comma = 0;
+
+                    btnEQU.IsEnabled = true;
+                }
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка"; 
+                BlockUnlock(1);
+            }
+         
+        }
+
+        private void btnMINUS_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (txbBIG.Text == string.Empty)
+                {
+                    txbBIG.Text = "-";
+                    PorM = 1;
+                }
+                else if ((txbBIG.Text != null) && (txbBIG.Text != "-"))
+                {
+                    num1 = txbBIG.Text;
+                    if (num1 != string.Empty)
+                    {
+                        txbSMALL.Text = txbBIG.Text + "-";
+                        txbBIG.Text = null;
+                        func = 7;
+                        PorM = 0;
+                        comma = 0;
+
+                        btnEQU.IsEnabled = true;
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+
+          
+        }
+
+        private void btnPLUS_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                num1 = txbBIG.Text;
+                if ((num1 != string.Empty) && (txbBIG.Text != "-"))
+                {
+                    txbSMALL.Text = txbBIG.Text + "+";
+                    txbBIG.Text = null;
+                    func = 8;
+                    comma = 0;
+
+                    btnEQU.IsEnabled = true;
+                }
+            }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+          
+        }
+
+        private void btnEQU_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if ((num1 != string.Empty) && (txbBIG.Text != "-") && (txbBIG.Text != string.Empty))
+                {
+                    if (func == 1)
+                    {
+                        txbSMALL.Text += txbBIG.Text + "=";
+                        txbBIG.Text = (Calculate.Mod(num1, txbBIG.Text));
+
+                        num1 = null;
+                        comma = 0;
+                    }
+                    else if (func == 3)
+                    {
+                        txbSMALL.Text += txbBIG.Text;
+                        txbBIG.Text = (Calculate.Pow(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
+
+                        string str = txbBIG.Text;
+                        if (txbBIG.Text.Length > 11)
+                        {
+                            txbBIG.Text = null;
+                            txbBIG.Text = Convert.ToString(str[0]) + "," + Convert.ToString(str[1]) + Convert.ToString(str[2]);
+                            txbBIG.Text += $"×10^{str.Length - 1}";
+                        }
+
+                        num1 = null;
+                        comma = 0;
+                    }
+                    else if (func == 5)
+                    {
+                        txbSMALL.Text += txbBIG.Text + "=";
+                        txbBIG.Text = (Calculate.Divide(num1, txbBIG.Text));
+                        if (txbBIG.Text.Length > 10)
+                        {
+                            string text = txbBIG.Text;
+                            txbBIG.Text = null;
+                            for (int i = 0; i < 10; i++)
+                            {
+                                txbBIG.Text += text[i];
+                            }
+
+                        }
+                        comma = 0;
+                        num1 = null;
+                    }
+                    else if (func == 6)
+                    {
+                        txbSMALL.Text += txbBIG.Text + "=";
+                        txbBIG.Text = (Calculate.Multiply(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
+
+                        string str = txbBIG.Text;
+                        if (txbBIG.Text.Length > 11)
+                        {
+                            txbBIG.Text = null;
+                            txbBIG.Text = Convert.ToString(str[0]) + "," + Convert.ToString(str[1]) + Convert.ToString(str[2]);
+                            txbBIG.Text += $"×10^{str.Length - 1}";
+                        }
+                        comma = 0;
+                        num1 = null;
+                    }
+                    else if (func == 7)
+                    {
+                        txbSMALL.Text += txbBIG.Text + "=";
+                        txbBIG.Text = (Calculate.Minus(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
+                        comma = 0;
+                        num1 = null;
+                    }
+                    else if (func == 8)
+                    {
+                        txbSMALL.Text += txbBIG.Text + "=";
+                        txbBIG.Text = (Calculate.Plus(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
+
+                        string str = txbBIG.Text;
+                        if (txbBIG.Text.Length > 11)
+                        {
+                            txbBIG.Text = null;
+                            txbBIG.Text = Convert.ToString(str[0]) + "," + Convert.ToString(str[1]) + Convert.ToString(str[2]);
+                            txbBIG.Text += $"×10^{str.Length - 1}";
+                        }
+
+                        comma = 0;
+                        num1 = null;
                     }
 
-                    num1 = null;
-                    btnEQU.IsEnabled = false;
-                }
-                else if (func == 6)
-                {
-                    txbSMALL.Text += txbBIG.Text + "=";
-                    txbBIG.Text = (Calculate.Multiply(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
-
-                    num1 = null;
-                    btnEQU.IsEnabled = false;
-                }
-                else if (func == 7)
-                {
-                    txbSMALL.Text += txbBIG.Text + "=";
-                    txbBIG.Text = (Calculate.Minus(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
-
-                    num1 = null;
-                    btnEQU.IsEnabled = false;
-                }
-                else if (func == 8)
-                {
-                    txbSMALL.Text += txbBIG.Text + "=";
-                    txbBIG.Text = (Calculate.Plus(Convert.ToDouble(num1), Convert.ToDouble(txbBIG.Text))).ToString();
-
-                    num1 = null;
                     btnEQU.IsEnabled = false;
                 }
             }
+            catch (Exception)
+            {
+                txbBIG.Text = "Ошибка";
+                BlockUnlock(1);
+            }
+
+            
         }
 
         private void btnSwitch_Click(object sender, RoutedEventArgs e)
@@ -354,7 +534,7 @@ namespace какулятор2
                 btnPOW.Visibility = Visibility.Visible;
                 btnSQRT.Visibility = Visibility.Visible;
                 btnFRACT.Visibility = Visibility.Visible;
-                btnDIV.Visibility = Visibility.Visible;
+                btnMOD.Visibility = Visibility.Visible;
 
                 sw = 1;
             }
@@ -368,7 +548,7 @@ namespace какулятор2
                 btnPOW.Visibility = Visibility.Collapsed;
                 btnSQRT.Visibility = Visibility.Collapsed;
                 btnFRACT.Visibility = Visibility.Collapsed;
-                btnDIV.Visibility = Visibility.Collapsed;
+                btnMOD.Visibility = Visibility.Collapsed;
 
                 sw = 0;
             }
@@ -509,23 +689,6 @@ namespace какулятор2
             }
             
 
-        }
-
-        private void txbBIG_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if ((txbBIG.Text == "-")||(string.IsNullOrEmpty(txbBIG.Text)))
-            {
-                btn0.IsEnabled = false;
-                btn1.IsEnabled = false;
-                btn2.IsEnabled = false;
-                btn3.IsEnabled = false;
-                btn4.IsEnabled = false;
-                btn5.IsEnabled = false;
-                btn6.IsEnabled = false;
-                btn7.IsEnabled = false;
-                btn8.IsEnabled = false;
-                btn9.IsEnabled = false;
-            }
         }
     }
 }

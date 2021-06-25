@@ -201,8 +201,7 @@
                                 <Setter Property="Background" TargetName="border" Value="#FF512DA8"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="darkmagenta"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="darkmagenta"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF512DA8"/>
                                 <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -388,8 +387,7 @@
                    Foreground="White"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Right"
-                   x:Name="txbBIG"
-                   DataContextChanged="txbBIG_DataContextChanged"/>
+                   x:Name="txbBIG"/>
 
 
         <Button Grid.Column="3"
@@ -397,8 +395,8 @@
                 Margin="4"
                 FontSize="30" 
                 Style="{DynamicResource btnCust}"
-                x:Name="btnDIV"
-                Click="btnDIV_Click"
+                x:Name="btnMOD"
+                Click="btnMOD_Click"
                 Visibility="Collapsed">
             <materialDesign:PackIcon Kind="Percent" Foreground="White" Width="35" Height="35"/>
         </Button>
